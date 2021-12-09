@@ -1,0 +1,291 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyOBuu0hGSjRycgCplPQxryb",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/KeslleyWillian/Algoritmos/blob/master/Atividade%20de%20Introdu%C3%A7%C3%A3o%20aos%20Sistemas%20Inteligentes\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nV8OmsdtlK_C"
+      },
+      "outputs": [],
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Aula de Google Colab\n",
+        "*   Introdução ao Google Colab: https://www.youtube.com/watch?v=Gojqw9BQ5qY"
+      ],
+      "metadata": {
+        "id": "XkDPoMXnl9iG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1) Dada duas listas, uma com a idade e outra com o peso das pessoas, faça uma função que retorne quantas pessoas com mais de 40 anos possuem peso superior a média dos pesos dessas pessoas."
+      ],
+      "metadata": {
+        "id": "VkUQH0IIrdTv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "idades = [34,36,26,45,95,42]\n",
+        "pesos = [68,78,65,89,67,98]\n",
+        " \n",
+        "qtd = len(pesos)\n",
+        "soma = 0\n",
+        "for i in range(len(pesos)):\n",
+        "  soma = soma + pesos[i]\n",
+        "  i+=1\n",
+        "media_peso = soma/len(pesos)\n",
+        "\n",
+        "i = 0\n",
+        "pessoas = 0\n",
+        "for i in range(len(pesos)):\n",
+        "  if idades[i] > 40 and pesos[i] > media_peso:\n",
+        "     pessoas+=1\n",
+        "      \n",
+        "print('Existem', pessoas, 'pessoas com mais de 40 anos e com peso superior à média')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FUIDx5HwrgAf",
+        "outputId": "feed90d0-9aa2-4422-d385-5822860febc2"
+      },
+      "execution_count": 62,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Existem 2 pessoas com mais de 40 anos e com peso superior à média\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "2) Faça uma função que receba dois parâmetros: linhas e colunas. A função deve desenhar uma moldura usando os caracteres '-', '|' e '*', como abaixo para 1 linha e 3 colunas.\n",
+        "*---*\n",
+        "|     |\n",
+        "*---*"
+      ],
+      "metadata": {
+        "id": "IwWr33I947DU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def funcao (linhas, colunas):\n",
+        "  i = 0\n",
+        "  j = 0\n",
+        "  base_linha = '---*'\n",
+        "  base_coluna = '   |'\n",
+        "  linha_concat = ''\n",
+        "  coluna_concat = ''\n",
+        "  if colunas > 1:\n",
+        "    for i in range(colunas):\n",
+        "      linha_concat = linha_concat + base_linha\n",
+        "      coluna_concat = coluna_concat + base_coluna\n",
+        "      i+=1\n",
+        "  else:\n",
+        "    linha_concat = base_linha\n",
+        "    coluna_concat = base_coluna\n",
+        "\n",
+        "  for i in range(linhas):\n",
+        "   print('*' + linha_concat)\n",
+        "   print('|' + coluna_concat)\n",
+        "   i+=1\n",
+        "  print('*' + linha_concat)\n",
+        "\n",
+        "funcao(1,3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6SQlMJAR5zce",
+        "outputId": "4315a9ea-fb04-47fd-fcee-6f5308fdf181"
+      },
+      "execution_count": 149,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "*---*---*---*\n",
+            "|   |   |   |\n",
+            "*---*---*---*\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "3) Faça uma função que receba uma string como parâmetro e retorne quantas palavras há na string."
+      ],
+      "metadata": {
+        "id": "yfDTe0DRDWlx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def funcao (palavras):\n",
+        "\n",
+        "  quantidade = len(palavras.split())\n",
+        "  print(quantidade)\n",
+        "\n",
+        "funcao('Faça uma função que receba uma string como parâmetro e retorne quantas palavras há na string')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ctwgn7mVDYWP",
+        "outputId": "bc6eb881-dad8-42b4-e9d7-e8a276f6065d"
+      },
+      "execution_count": 154,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "16\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "HBPse1em48Ni"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "4) Crie um programa que gere 100 valores aleatórios entre 1 e 10. Mostre qual número que menos apareceu e qual o que mais apareceu, com suas respectivas frequências."
+      ],
+      "metadata": {
+        "id": "xskcZnmNE4JB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "i = 0\n",
+        "aleatorio = []\n",
+        "for i in range(100):\n",
+        "  aleatorio.append(random.randint(1,10))\n",
+        "  i+=1\n",
+        "ordenado = sorted(aleatorio)\n",
+        "\n",
+        "i = 0\n",
+        "qtd = 1\n",
+        "qtd_vector = []\n",
+        "qtd_vector_qual = []\n",
+        "while (i<99):\n",
+        "  \n",
+        "  while i<99 and ordenado[i] == ordenado[i+1]:\n",
+        "    qtd+=1\n",
+        "    i+=1\n",
+        "  qtd_vector.append(qtd)\n",
+        "  qtd_vector_qual.append(ordenado[i])\n",
+        "  qtd = 1\n",
+        "  i=i+1\n",
+        "\n",
+        "print('A lista aleatória é: ')\n",
+        "print(aleatorio)\n",
+        "\n",
+        "qtd_menor = 10\n",
+        "local_menor = 0\n",
+        "qual_menor = 0\n",
+        "\n",
+        "k = 0\n",
+        "for k in range(len(qtd_vector)):\n",
+        "  if qtd_vector[k] < qtd_menor:\n",
+        "    qtd_menor = qtd_vector[k]\n",
+        "    local_menor = k\n",
+        "  k+=1\n",
+        "\n",
+        "qtd_maior = 0\n",
+        "local_maior = 0\n",
+        "qual_maior = 0\n",
+        "l = 0\n",
+        "for l in range(len(qtd_vector)):\n",
+        "  if qtd_vector[l] > qtd_maior:\n",
+        "    qtd_maior = qtd_vector[l]\n",
+        "    local_maior = l\n",
+        "\n",
+        "  l+=1\n",
+        "qual_menor = qtd_vector_qual[local_menor]\n",
+        "qual_maior = qtd_vector_qual[local_maior]\n",
+        "print('O número que mais repete é o ',qual_maior,', com ',qtd_maior,' repetições')\n",
+        "print('O número que menos repete é o ',qual_menor,', com ',qtd_menor,' repetições')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vjYfBBTDGr_u",
+        "outputId": "42d460dc-93c8-4c73-c8f8-ffa21344caf2"
+      },
+      "execution_count": 313,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A lista aleatória é: \n",
+            "[2, 9, 9, 1, 2, 4, 8, 7, 10, 9, 10, 8, 3, 2, 7, 7, 10, 6, 2, 5, 10, 5, 4, 6, 7, 2, 10, 5, 1, 9, 3, 1, 1, 4, 10, 6, 4, 5, 8, 6, 1, 7, 10, 2, 8, 2, 5, 7, 2, 7, 6, 6, 3, 4, 9, 10, 4, 1, 2, 9, 5, 9, 9, 1, 1, 6, 7, 5, 5, 10, 6, 10, 6, 9, 9, 6, 10, 2, 2, 8, 3, 2, 6, 3, 2, 9, 1, 10, 9, 6, 9, 3, 10, 8, 9, 1, 1, 9, 10, 8]\n",
+            "O número que mais repete é o  9 , com  15  repetições\n",
+            "O número que menos repete é o  3 , com  6  repetições\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
